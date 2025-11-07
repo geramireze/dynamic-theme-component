@@ -43,7 +43,9 @@
     "build/bavv/dev/types/**/*.ts",
     "build/bpop/types/**/*.ts",
     "build/bpop/dev/types/**/*.ts",
-    "src/types/**/*.d.ts"
+    "src/types/**/*.d.ts",
+    ".next/bbog/types/**/*.ts",
+    ".next/bbog/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

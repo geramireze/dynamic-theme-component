@@ -106,7 +106,7 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_BRAND_KEY: BRAND_KEY[THEME],
   },
 
-  distDir: `build/${themeLower}`,
+  distDir: `.next/${themeLower}`,
 
   webpack: (config: Configuration, { isServer }) => {
     // Create theme-specific component aliases
