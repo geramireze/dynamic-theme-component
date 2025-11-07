@@ -1,0 +1,333 @@
+// Theme variables are automatically injected by next.config.ts sassOptions.prependData
+// No need to import them manually
+
+.datepicker-bocc {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 340px;
+
+  &__label {
+    display: block;
+    margin-bottom: $SPACING_XS;
+    font-size: 0.8125rem;
+    font-weight: $FONT_WEIGHT_MEDIUM;
+    color: $TEXT_PRIMARY;
+  }
+
+  &__input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    width: 100%;
+    padding: $INPUT_PADDING_TOP 3rem $INPUT_PADDING_BOTTOM $INPUT_PADDING_LEFT;
+    border: $INPUT_BORDER_WIDTH solid $INPUT_BORDER_COLOR;
+    border-radius: $INPUT_BORDER_RADIUS;
+    font-size: $INPUT_FONT_SIZE;
+    font-family: $INPUT_FONT_FAMILY;
+    font-weight: $INPUT_FONT_WEIGHT;
+    color: $INPUT_TEXT_COLOR;
+    background: $INPUT_BG_COLOR;
+    cursor: pointer;
+    transition: $INPUT_TRANSITION;
+    line-height: 1.5;
+
+    // Placeholder styling
+    &::placeholder {
+      color: $INPUT_PLACEHOLDER_COLOR;
+      font-weight: $FONT_WEIGHT_NORMAL;
+      opacity: 1;
+    }
+
+    // Hover state
+    &:hover:not(:disabled):not(:focus) {
+      border-color: $INPUT_BORDER_HOVER_COLOR;
+      background: $INPUT_BG_HOVER_COLOR;
+      @if $INPUT_SHADOW_HOVER != none {
+        box-shadow: $INPUT_SHADOW_HOVER;
+      }
+    }
+
+    // Focus state
+    &:focus {
+      outline: none;
+      border-color: $INPUT_BORDER_FOCUS_COLOR;
+      background: $INPUT_BG_FOCUS_COLOR;
+      box-shadow: $INPUT_SHADOW_FOCUS;
+    }
+
+    // Disabled state
+    &:disabled {
+      background: $INPUT_BG_DISABLED_COLOR;
+      border-color: $INPUT_BORDER_DISABLED_COLOR;
+      color: rgba($INPUT_TEXT_COLOR, 0.5);
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    // Active/Filled state (when has value)
+    &:not(:placeholder-shown) {
+      font-weight: $INPUT_FONT_WEIGHT;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: $INPUT_PADDING_RIGHT;
+    width: 22px;
+    height: 22px;
+    color: $PRIMARY;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + $SPACING_SM);
+    left: 0;
+    z-index: 1000;
+    background: white;
+    border-radius: $INPUT_BORDER_RADIUS;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeInUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 320px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $SPACING_MD $SPACING_MD;
+    background: linear-gradient(135deg, $PRIMARY 0%, #ff6b6b 100%);
+    color: white;
+  }
+
+  &__nav-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__month-year {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  &__month {
+    font-size: 1.125rem;
+    font-weight: $FONT_WEIGHT_BOLD;
+    text-transform: capitalize;
+  }
+
+  &__year {
+    font-size: 0.8125rem;
+    opacity: 0.9;
+    margin-top: $SPACING_XS / 2;
+  }
+
+  &__calendar {
+    padding: $SPACING_MD;
+  }
+
+  &__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: $SPACING_XS;
+    margin-bottom: $SPACING_SM;
+  }
+
+  &__weekday {
+    text-align: center;
+    font-size: 0.6875rem;
+    font-weight: $FONT_WEIGHT_BOLD;
+    color: $TEXT_SECONDARY;
+    padding: $SPACING_SM $SPACING_XS;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: $SPACING_XS;
+  }
+
+  &__day {
+    aspect-ratio: 1;
+    border: none;
+    background: transparent;
+    border-radius: $INPUT_BORDER_RADIUS;
+    font-size: 0.875rem;
+    font-family: $FONT_FAMILY;
+    font-weight: $FONT_WEIGHT_MEDIUM;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    color: $TEXT_PRIMARY;
+
+    &:hover:not(&--empty):not(&--selected) {
+      background: $INPUT_BG_HOVER_COLOR;
+      color: $PRIMARY;
+      transform: scale(1.08);
+    }
+
+    &--empty {
+      cursor: default;
+    }
+
+    &--selected {
+      background: linear-gradient(135deg, $PRIMARY 0%, #ff6b6b 100%);
+      color: white;
+      font-weight: $FONT_WEIGHT_BOLD;
+      transform: scale(1.08);
+      box-shadow: 0 4px 12px rgba($PRIMARY, 0.3);
+    }
+
+    &--today:not(&--selected) {
+      background: rgba($PRIMARY, 0.1);
+      border: 2px solid $PRIMARY;
+      font-weight: $FONT_WEIGHT_BOLD;
+      color: $PRIMARY;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    gap: $SPACING_SM;
+    padding: $SPACING_SM $SPACING_MD $SPACING_MD;
+    border-top: 1px solid rgba($TEXT_SECONDARY, 0.25);
+  }
+
+  &__action-button {
+    flex: 1;
+    padding: $SPACING_SM $SPACING_MD;
+    border-radius: $INPUT_BORDER_RADIUS;
+    font-size: 0.875rem;
+    font-family: $FONT_FAMILY;
+    font-weight: $FONT_WEIGHT_BOLD;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &--clear {
+      background: white;
+      border: $INPUT_BORDER_WIDTH solid $INPUT_BORDER_COLOR;
+      color: $TEXT_SECONDARY;
+
+      &:hover {
+        background: $INPUT_BG_HOVER_COLOR;
+        border-color: $INPUT_BORDER_HOVER_COLOR;
+      }
+    }
+
+    &--today {
+      background: $PRIMARY;
+      border: none;
+      color: white;
+
+      &:hover {
+        filter: brightness(0.9);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba($PRIMARY, 0.3);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__error {
+    margin-top: $SPACING_XS;
+    font-size: 0.75rem;
+    font-weight: $FONT_WEIGHT_MEDIUM;
+    color: $ERROR_TEXT_COLOR;
+    display: flex;
+    align-items: center;
+    gap: $SPACING_XS;
+  }
+
+  &__helper {
+    margin-top: $SPACING_XS;
+    font-size: 0.75rem;
+    color: $HELPER_TEXT_COLOR;
+  }
+
+  &__badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: $SPACING_XS $SPACING_SM;
+    background: linear-gradient(135deg, $PRIMARY 0%, #ff6b6b 100%);
+    color: white;
+    font-size: 0.625rem;
+    font-weight: $FONT_WEIGHT_BOLD;
+    border-radius: $INPUT_BORDER_RADIUS;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba($PRIMARY, 0.3);
+    letter-spacing: 0.5px;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &--error {
+    .datepicker-bocc__input {
+      border-color: $INPUT_BORDER_ERROR_COLOR;
+      background: $INPUT_BG_ERROR_COLOR;
+
+      &:focus {
+        box-shadow: $INPUT_SHADOW_ERROR;
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

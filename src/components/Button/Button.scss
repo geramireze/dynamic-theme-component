@@ -1,0 +1,81 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $SPACING_SM;
+  border: none;
+  border-radius: $BORDER_RADIUS;
+  font-family: $FONT_FAMILY;
+  padding: $PADDING_TOP_BOTTOM_MD $PADDING_LEFT_RIGHT_MD;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  &:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  &:not(:disabled):active {
+    transform: translateY(0);
+  }
+}
+
+// Variantes
+.primary {
+  background: $PRIMARY;
+  color: white;
+
+
+  &:not(:disabled):hover {
+    filter: brightness(0.85);
+  }
+}
+
+.secondary {
+  background: transparent;
+  border: 2px solid $PRIMARY;
+  color: $PRIMARY;
+  
+  &:not(:disabled):hover {
+    background: $PRIMARY;
+    color: white;
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: $PRIMARY;
+  
+  &:not(:disabled):hover {
+    background: rgba($PRIMARY, 0.1);
+  }
+}
+
+// Tamaños
+.sm {
+  padding: $PADDING_TOP_BOTTOM_SM $PADDING_LEFT_RIGHT_SM;
+  font-size: 14px;
+  font-family: $FONT_FAMILY;
+  font-weight: $FONT_WEIGHT_NORMAL;
+  
+}
+
+.md {
+  padding: $PADDING_TOP_BOTTOM_MD $PADDING_LEFT_RIGHT_MD;
+  font-size: 16px;
+  font-family: $FONT_FAMILY;
+  font-weight: $FONT_WEIGHT_NORMAL;
+}
+
+.lg {
+  padding: $PADDING_TOP_BOTTOM_LG $PADDING_LEFT_RIGHT_LG;
+  font-size: 18px;
+  font-family: $FONT_FAMILY;
+  font-weight: $FONT_WEIGHT_NORMAL;
+}

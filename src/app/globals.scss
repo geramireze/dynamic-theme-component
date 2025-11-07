@@ -1,0 +1,19 @@
+// Global styles with theme variables automatically injected via prependData
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: $FONT_FAMILY;
+  color: $TEXT_PRIMARY;
+  line-height: 1.6;
+}
+
+body {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}

@@ -1,0 +1,239 @@
+// Theme variables are automatically injected by next.config.ts sassOptions.prependData
+// No need to import them manually
+
+.datepicker-shared {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+
+  &__label {
+    display: block;
+    margin-bottom: $SPACING_SM;
+    font-size: 0.875rem;
+    font-weight: $FONT_WEIGHT_MEDIUM;
+    color: $TEXT_PRIMARY;
+  }
+
+  &__input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    width: 100%;
+    padding: $INPUT_PADDING_TOP 2.5rem $INPUT_PADDING_BOTTOM $INPUT_PADDING_LEFT;
+    border: $INPUT_BORDER_WIDTH solid $INPUT_BORDER_COLOR;
+    border-radius: $INPUT_BORDER_RADIUS;
+    font-size: $INPUT_FONT_SIZE;
+    font-family: $INPUT_FONT_FAMILY;
+    font-weight: $INPUT_FONT_WEIGHT;
+    color: $INPUT_TEXT_COLOR;
+    background: $INPUT_BG_COLOR;
+    cursor: pointer;
+    transition: $INPUT_TRANSITION;
+    line-height: 1.5;
+
+    // Placeholder styling
+    &::placeholder {
+      color: $INPUT_PLACEHOLDER_COLOR;
+      font-weight: $FONT_WEIGHT_NORMAL;
+      opacity: 1;
+    }
+
+    // Hover state
+    &:hover:not(:disabled):not(:focus) {
+      border-color: $INPUT_BORDER_HOVER_COLOR;
+      background: $INPUT_BG_HOVER_COLOR;
+      @if $INPUT_SHADOW_HOVER != none {
+        box-shadow: $INPUT_SHADOW_HOVER;
+      }
+    }
+
+    // Focus state
+    &:focus {
+      outline: none;
+      border-color: $INPUT_BORDER_FOCUS_COLOR;
+      background: $INPUT_BG_FOCUS_COLOR;
+      box-shadow: $INPUT_SHADOW_FOCUS;
+    }
+
+    // Disabled state
+    &:disabled {
+      background: $INPUT_BG_DISABLED_COLOR;
+      border-color: $INPUT_BORDER_DISABLED_COLOR;
+      color: rgba($INPUT_TEXT_COLOR, 0.5);
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    // Active/Filled state (when has value)
+    &:not(:placeholder-shown) {
+      font-weight: $INPUT_FONT_WEIGHT;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: $INPUT_PADDING_RIGHT;
+    font-size: 1.25rem;
+    color: $PRIMARY;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      filter: brightness(0.85);
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + $SPACING_SM);
+    left: 0;
+    z-index: 1000;
+    width: 280px;
+    background: white;
+    border: $INPUT_BORDER_WIDTH solid $INPUT_BORDER_COLOR;
+    border-radius: $BORDER_RADIUS;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: $SPACING_MD;
+  }
+
+  &__header {
+    margin-bottom: $SPACING_MD;
+    text-align: center;
+  }
+
+  &__month {
+    font-size: 1rem;
+    font-weight: $FONT_WEIGHT_BOLD;
+    color: $TEXT_PRIMARY;
+  }
+
+  &__calendar {
+    margin-bottom: $SPACING_SM;
+  }
+
+  &__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: $SPACING_XS;
+    margin-bottom: $SPACING_SM;
+  }
+
+  &__weekday {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: $FONT_WEIGHT_BOLD;
+    color: $TEXT_SECONDARY;
+    padding: $SPACING_XS;
+  }
+
+  &__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: $SPACING_XS;
+  }
+
+  &__day {
+    aspect-ratio: 1;
+    border: none;
+    background: transparent;
+    border-radius: $INPUT_BORDER_RADIUS;
+    font-size: 0.875rem;
+    font-family: $FONT_FAMILY;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: $TEXT_PRIMARY;
+
+    &:hover:not(&--empty) {
+      background: rgba($PRIMARY, 0.1);
+      transform: scale(1.05);
+    }
+
+    &--empty {
+      cursor: default;
+    }
+
+    &--selected {
+      background: $PRIMARY;
+      color: white;
+      font-weight: $FONT_WEIGHT_BOLD;
+    }
+
+    &--today {
+      border: 2px solid $PRIMARY;
+      font-weight: $FONT_WEIGHT_MEDIUM;
+    }
+  }
+
+  &__footer {
+    border-top: 1px solid rgba($TEXT_SECONDARY, 0.3);
+    padding-top: $SPACING_SM;
+    text-align: center;
+  }
+
+  &__clear {
+    padding: $SPACING_SM $SPACING_MD;
+    background: transparent;
+    border: $INPUT_BORDER_WIDTH solid $INPUT_BORDER_COLOR;
+    border-radius: $INPUT_BORDER_RADIUS;
+    font-size: 0.875rem;
+    font-family: $FONT_FAMILY;
+    font-weight: $FONT_WEIGHT_MEDIUM;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background: $INPUT_BG_HOVER_COLOR;
+      border-color: $INPUT_BORDER_HOVER_COLOR;
+    }
+  }
+
+  &__error {
+    margin-top: $SPACING_XS;
+    font-size: 0.75rem;
+    font-weight: $FONT_WEIGHT_MEDIUM;
+    color: $ERROR_TEXT_COLOR;
+    display: flex;
+    align-items: center;
+    gap: $SPACING_XS;
+  }
+
+  &__helper {
+    margin-top: $SPACING_XS;
+    font-size: 0.75rem;
+    color: $HELPER_TEXT_COLOR;
+  }
+
+  &__badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    padding: 2px 6px;
+    background: $TEXT_SECONDARY;
+    color: white;
+    font-size: 0.625rem;
+    font-weight: $FONT_WEIGHT_BOLD;
+    border-radius: $SPACING_XS;
+    text-transform: uppercase;
+  }
+
+  &--disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  &--error {
+    .datepicker-shared__input {
+      border-color: $INPUT_BORDER_ERROR_COLOR;
+      background: $INPUT_BG_ERROR_COLOR;
+
+      &:focus {
+        box-shadow: $INPUT_SHADOW_ERROR;
+      }
+    }
+  }
+}
