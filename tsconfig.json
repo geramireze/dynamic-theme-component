@@ -45,7 +45,9 @@
     "build/bpop/dev/types/**/*.ts",
     "src/types/**/*.d.ts",
     ".next/bbog/types/**/*.ts",
-    ".next/bbog/dev/types/**/*.ts"
+    ".next/bbog/dev/types/**/*.ts",
+    ".next/bocc/types/**/*.ts",
+    ".next/bocc/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

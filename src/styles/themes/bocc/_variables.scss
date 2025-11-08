@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 // BOCC - Banco de Occidente
 $PRIMARY: #ed1c24;
 $SECONDARY: #000000;
 $ACCENT: #ffffff;
 $TEXT_PRIMARY: #1c1c1c;
 $TEXT_SECONDARY: #757575;
+
+$PRIMARY_BTN: linear-gradient(to bottom,#0081ff,#0056cb 72%);
+$BORDER_COLOR_BTN: #0056cb;
+$LABEL_COLOR_BTN: #ffffff;
+$LABEL_COLOR_OUT_BTN: #0056cb;
 
 $SPACING_XS: 4px;
 $SPACING_SM: 8px;
@@ -17,8 +24,9 @@ $PADDING_LEFT_RIGHT_MD: 32px;
 $PADDING_TOP_BOTTOM_LG: 16px;
 $PADDING_LEFT_RIGHT_LG: 40px;
 
-$FONT_FAMILY: 'Open Sans', sans-serif;
-$FONT_FAMILY_BTN: 'Roboto-Medium', sans-serif;
+$FONT_FAMILY: 'Poppins', sans-serif;
+$FONT_FAMILY_BTN: 'Poppins', sans-serif;
+
 $FONT_WEIGHT_NORMAL: 400;
 $FONT_WEIGHT_MEDIUM: 500;
 $FONT_WEIGHT_BOLD: 700;

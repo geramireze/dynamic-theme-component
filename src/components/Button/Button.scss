@@ -28,8 +28,8 @@
 
 // Variantes
 .primary {
-  background: $PRIMARY;
-  color: white;
+  background: $PRIMARY_BTN;
+  color: $LABEL_COLOR_BTN;
 
 
   &:not(:disabled):hover {
@@ -39,8 +39,8 @@
 
 .secondary {
   background: transparent;
-  border: 2px solid $PRIMARY;
-  color: $PRIMARY;
+  border: 2px solid $BORDER_COLOR_BTN;
+  color: $LABEL_COLOR_BTN;
   
   &:not(:disabled):hover {
     background: $PRIMARY;
